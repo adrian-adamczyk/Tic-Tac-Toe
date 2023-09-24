@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Comic Neue", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+}
+
+.board {
+  width: 70vh;
+  height: 70vh;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 1%;
+  row-gap: 1%;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cross,
+.circle {
+  width: 90px;
+  height: 90px;
+  filter: invert(100%);
+}
+
+.symbol {
+  animation: 1s bounce;
+}
+
+.winInfo {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 42px;
+  background: grey;
+  padding: 80px 20px;
+  border-radius: 200px;
+  animation: 2s slidein;
+}
+
+.winInfo .symbol {
+  background: #0fa;
+  width: 120px;
+  height: 120px;
+  padding: 20px;
+  border-radius: 10px;
+  filter: invert(0%);
+}
+
+.winInfo .medal {
+  width: 70%;
+  height: 70%;
+}
+
+.ui {
+  width: 80vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 70px;
+}
+
+.score,
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.score {
+  width: 200px;
+  height: 100px;
+}
+
+.controls {
+  width: 130px;
+  height: 50px;
+  gap: 30px;
+}
+
+.player {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  color: black;
+  font-size: 30px;
+  filter: invert(30%);
+  transition: 1s linear;
+}
+
+.playing {
+  filter: invert(100%);
+  transition: 1s linear;
+}
+
+.player img {
+  width: 40px;
+  height: 40px;
+}
+
+.restartButton,
+.volumeBar {
+  width: 50%;
+  height: 100%;
+}
+
+#volumeBarMuted {
+  display: none;
+}
+
+.controls img {
+  width: 100%;
+  height: 100%;
+  filter: invert(100%);
+}
+
+.controls img:hover,
+:focus {
+  filter: invert(50%);
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    scale: 0.5;
+  }
+  50% {
+    scale: 0.75;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+/* 750 */
+@media screen and (max-width: 1050px) {
+  .board {
+    width: 80vw;
+    height: 80vw;
+  }
+  .ui {
+    height: 80vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 70vh;
+    top: 0;
+    margin: 50vh auto 0;
+    transform: translateY(-50%);
+  }
+}
